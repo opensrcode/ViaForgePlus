@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.common.gui;
+package net.aspw.viaforgeplus.common;
 
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 

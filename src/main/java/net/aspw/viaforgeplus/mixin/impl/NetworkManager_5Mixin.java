@@ -1,8 +1,8 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
-import net.aspw.viaforgeplus.common.protocoltranslator.netty.VFPNetworkManager;
+import net.aspw.viaforgeplus.VfpMain;
 import io.netty.channel.Channel;
+import net.aspw.viaforgeplus.ViaForgePlus;
 import net.minecraft.network.NetworkManager;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,6 @@ public class NetworkManager_5Mixin {
 
     @Inject(method = "initChannel", at = @At(value = "TAIL"), remap = false)
     private void hookViaPipeline(Channel channel, CallbackInfo ci) {
-        CommonViaForgePlus.getManager().inject(channel, (VFPNetworkManager) val$networkmanager);
+        ViaForgePlus.vfpMain.inject(channel, val$networkmanager);
     }
-    
 }

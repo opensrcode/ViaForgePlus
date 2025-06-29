@@ -1,33 +1,13 @@
-package net.aspw.viaforgeplus.vfphooks;
+package net.aspw.viaforgeplus.vfphook;
 
-import com.viaversion.viabackwards.protocol.v1_11to1_10.Protocol1_11To1_10;
-import com.viaversion.viarewind.protocol.v1_9to1_8.Protocol1_9To1_8;
-import com.viaversion.viaversion.api.Via;
-import com.viaversion.viaversion.api.minecraft.BlockPosition;
-import com.viaversion.viaversion.api.protocol.packet.PacketWrapper;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import com.viaversion.viaversion.api.type.Types;
-import com.viaversion.viaversion.protocols.v1_8to1_9.packet.ServerboundPackets1_9;
 import net.aspw.viaforgeplus.IMinecraft;
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
-import net.minecraft.block.BlockAir;
+import net.aspw.viaforgeplus.VfpMain;
+import net.aspw.viaforgeplus.ViaForgePlus;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemEnderEye;
-import net.minecraft.item.ItemEnderPearl;
-import net.minecraft.item.ItemExpBottle;
-import net.minecraft.item.ItemPotion;
-import net.minecraft.item.ItemSnowball;
-import net.minecraft.network.Packet;
-import net.minecraft.network.handshake.client.C00Handshake;
-import net.minecraft.network.play.client.C07PacketPlayerDigging;
-import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement;
-import net.minecraft.network.play.client.C0APacketAnimation;
-import net.minecraft.network.play.client.C0EPacketClickWindow;
-import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
@@ -35,7 +15,6 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class VersionDiffPatches {
 
@@ -49,7 +28,7 @@ public class VersionDiffPatches {
             if (leftClick && IMinecraft.mc.objectMouseOver != null && IMinecraft.mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
                 BlockPos blockPos = IMinecraft.mc.objectMouseOver.getBlockPos();
 
-                if (IMinecraft.mc.thePlayer.isUsingItem() && (CommonViaForgePlus.getManager().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_8) || IMinecraft.mc.isSingleplayer())) return;
+                if (IMinecraft.mc.thePlayer.isUsingItem() && (ViaForgePlus.vfpMain.getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_8) || IMinecraft.mc.isSingleplayer())) return;
 
                 if (IMinecraft.mc.theWorld.getBlockState(blockPos).getBlock().getMaterial() != Material.air && IMinecraft.mc.playerController.onPlayerDamageBlock(blockPos, IMinecraft.mc.objectMouseOver.sideHit)) {
                     IMinecraft.mc.effectRenderer.addBlockHitEffects(blockPos, IMinecraft.mc.objectMouseOver.sideHit);
@@ -94,7 +73,7 @@ public class VersionDiffPatches {
     }
 
     private static void sendFixedAttack(final EntityPlayer entityIn, final Entity target) {
-        if (!IMinecraft.mc.isSingleplayer() && CommonViaForgePlus.getManager().getTargetVersion().newerThan(ProtocolVersion.v1_8)) {
+        if (!IMinecraft.mc.isSingleplayer() && ViaForgePlus.vfpMain.getTargetVersion().newerThan(ProtocolVersion.v1_8)) {
             IMinecraft.mc.playerController.attackEntity(entityIn, target);
             IMinecraft.mc.thePlayer.swingItem();
         } else {
@@ -104,7 +83,7 @@ public class VersionDiffPatches {
     }
 
     public static void pushOutHook(CallbackInfoReturnable<Boolean> cir) {
-        if (shouldSwimOrCrawl() || !IMinecraft.mc.isSingleplayer() && CommonViaForgePlus.getManager().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_13) && IMinecraft.mc.thePlayer.isSneaking())
+        if (shouldSwimOrCrawl() || !IMinecraft.mc.isSingleplayer() && ViaForgePlus.vfpMain.getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_13) && IMinecraft.mc.thePlayer.isSneaking())
             cir.setReturnValue(false);
     }
 
@@ -124,6 +103,6 @@ public class VersionDiffPatches {
         AxisAlignedBB box = IMinecraft.mc.thePlayer.getEntityBoundingBox();
         AxisAlignedBB crawlBB = new AxisAlignedBB(box.minX, box.minY + 0.9, box.minZ, box.minX + 0.6, box.minY + 1.5, box.minZ + 0.6);
 
-        return !IMinecraft.mc.isSingleplayer() && CommonViaForgePlus.getManager().getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_13) && (canSwim() || !IMinecraft.mc.theWorld.getCollisionBoxes(crawlBB).isEmpty());
+        return !IMinecraft.mc.isSingleplayer() && ViaForgePlus.vfpMain.getTargetVersion().newerThanOrEqualTo(ProtocolVersion.v1_13) && (canSwim() || !IMinecraft.mc.theWorld.getCollisionBoxes(crawlBB).isEmpty());
     }
 }

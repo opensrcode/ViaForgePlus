@@ -38,5 +38,4 @@ public class MixinLoader implements IFMLLoadingPlugin {
     public String getAccessTransformerClass() {
         return null;
     }
-    
 }

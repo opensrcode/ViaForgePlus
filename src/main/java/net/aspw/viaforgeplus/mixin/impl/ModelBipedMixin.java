@@ -1,19 +1,13 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
 import net.aspw.viaforgeplus.IMinecraft;
-import net.aspw.viaforgeplus.vfphooks.Interpolation;
-import net.aspw.viaforgeplus.vfphooks.SwimmingAnimation;
-import net.aspw.viaforgeplus.vfphooks.VersionDiffPatches;
-import net.minecraft.client.entity.EntityPlayerSP;
+import net.aspw.viaforgeplus.vfphook.SwimmingAnimation;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

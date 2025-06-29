@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.common.protocoltranslator.netty;
+package net.aspw.viaforgeplus.common;
 
 import com.viaversion.vialoader.netty.VLLegacyPipeline;
 import com.viaversion.viaversion.api.connection.UserConnection;

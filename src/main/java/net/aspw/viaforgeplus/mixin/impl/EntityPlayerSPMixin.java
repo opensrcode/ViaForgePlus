@@ -1,8 +1,8 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
 import com.mojang.authlib.GameProfile;
-import net.aspw.viaforgeplus.vfphooks.MotionFixes;
-import net.aspw.viaforgeplus.vfphooks.VersionDiffPatches;
+import net.aspw.viaforgeplus.vfphook.MotionFixes;
+import net.aspw.viaforgeplus.vfphook.VersionDiffPatches;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.world.World;

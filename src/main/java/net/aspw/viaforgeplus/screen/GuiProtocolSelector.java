@@ -1,10 +1,9 @@
 package net.aspw.viaforgeplus.screen;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-import com.viaversion.viaversion.api.Via;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import com.viaversion.viaversion.util.DumpUtil;
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
+import net.aspw.viaforgeplus.VfpMain;
+import net.aspw.viaforgeplus.ViaForgePlus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -13,10 +12,8 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
-import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 
-public class GuiProtocolSelectorScreen extends GuiScreen {
+public class GuiProtocolSelector extends GuiScreen {
 
     private final GuiScreen parent;
     private final boolean simple;
@@ -24,13 +21,13 @@ public class GuiProtocolSelectorScreen extends GuiScreen {
 
     private SlotList list;
 
-    public GuiProtocolSelectorScreen(final GuiScreen parent) {
+    public GuiProtocolSelector(final GuiScreen parent) {
         this(parent, false, (version, unused) -> {
-            CommonViaForgePlus.getManager().setTargetVersion(version);
+            ViaForgePlus.vfpMain.setTargetVersion(version);
         });
     }
 
-    public GuiProtocolSelectorScreen(final GuiScreen parent, final boolean simple, final FinishedCallback finishedCallback) {
+    public GuiProtocolSelector(final GuiScreen parent, final boolean simple, final FinishedCallback finishedCallback) {
         this.parent = parent;
         this.simple = simple;
         this.finishedCallback = finishedCallback;
@@ -71,7 +68,7 @@ public class GuiProtocolSelectorScreen extends GuiScreen {
 
         GL11.glPushMatrix();
         GL11.glScalef(2.0F, 2.0F, 2.0F);
-        drawCenteredString(fontRendererObj, ChatFormatting.GOLD + "ViaForgePlus (" + (CommonViaForgePlus.isModLatest ? "Latest Build" : "Outdated Build") + ")", width / 4, 3, 16777215);
+        drawCenteredString(fontRendererObj, ChatFormatting.GOLD + "ViaForgePlus (" + (ViaForgePlus.updatesChecker.isModLatest ? "Latest Build" : "Outdated Build") + ")", width / 4, 3, 16777215);
         GL11.glPopMatrix();
 
         drawCenteredString(fontRendererObj, "https://nattogreatapi.pages.dev/ViaForgePlus/", width / 2, (fontRendererObj.FONT_HEIGHT + 2) * 2 + 3, -1);
@@ -107,14 +104,14 @@ public class GuiProtocolSelectorScreen extends GuiScreen {
 
         @Override
         protected void drawSlot(int index, int x, int y, int slotHeight, int mouseX, int mouseY) {
-            final ProtocolVersion targetVersion = CommonViaForgePlus.getManager().getTargetVersion();
+            final ProtocolVersion targetVersion = ViaForgePlus.vfpMain.getTargetVersion();
             final ProtocolVersion version = ProtocolVersion.getProtocols().get(index);
 
             String color;
             if (targetVersion == version) {
-                color = GuiProtocolSelectorScreen.this.simple ? ChatFormatting.GOLD.toString() : ChatFormatting.GREEN.toString();
+                color = GuiProtocolSelector.this.simple ? ChatFormatting.GOLD.toString() : ChatFormatting.GREEN.toString();
             } else {
-                color = GuiProtocolSelectorScreen.this.simple ? ChatFormatting.WHITE.toString() : ChatFormatting.DARK_RED.toString();
+                color = GuiProtocolSelector.this.simple ? ChatFormatting.WHITE.toString() : ChatFormatting.DARK_RED.toString();
             }
 
             drawCenteredString(mc.fontRendererObj,(color) + version.getName(), width / 2, y, -1);

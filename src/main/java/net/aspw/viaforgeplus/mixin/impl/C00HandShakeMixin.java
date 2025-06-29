@@ -1,8 +1,6 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
-import net.aspw.viaforgeplus.IMinecraft;
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
-import net.aspw.viaforgeplus.vfphooks.MotionFixes;
+import net.aspw.viaforgeplus.vfphook.MotionFixes;
 import net.minecraft.network.handshake.client.C00Handshake;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;

@@ -1,6 +1,6 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
-import net.aspw.viaforgeplus.vfphooks.MotionFixes;
+import net.aspw.viaforgeplus.vfphook.MotionFixes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.block.material.MapColor;

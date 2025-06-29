@@ -1,8 +1,7 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
-import net.aspw.viaforgeplus.IMinecraft;
-import net.aspw.viaforgeplus.vfphooks.Interpolation;
-import net.aspw.viaforgeplus.vfphooks.MotionFixes;
+import net.aspw.viaforgeplus.vfphook.Interpolation;
+import net.aspw.viaforgeplus.vfphook.MotionFixes;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,17 +1,14 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
 import net.aspw.viaforgeplus.IMinecraft;
-import net.aspw.viaforgeplus.vfphooks.Interpolation;
-import net.aspw.viaforgeplus.vfphooks.MotionFixes;
-import net.aspw.viaforgeplus.vfphooks.VersionDiffPatches;
+import net.aspw.viaforgeplus.vfphook.Interpolation;
+import net.aspw.viaforgeplus.vfphook.MotionFixes;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityPlayer.class)

@@ -1,7 +1,7 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
-import net.aspw.viaforgeplus.common.gui.ExtendedServerData;
+import net.aspw.viaforgeplus.common.ExtendedServerData;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.nbt.NBTTagCompound;
 import org.spongepowered.asm.mixin.Mixin;

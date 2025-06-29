@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.vfphooks;
+package net.aspw.viaforgeplus.vfphook;
 
 import net.aspw.viaforgeplus.IMinecraft;
 import net.minecraft.client.model.ModelRenderer;
@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import java.util.logging.Logger;
 
 public class SwimmingAnimation {
 

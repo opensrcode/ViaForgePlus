@@ -1,9 +1,6 @@
 package net.aspw.viaforgeplus.mixin.impl;
 
-import com.viaversion.viaversion.util.Pair;
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
-import net.aspw.viaforgeplus.common.platform.ViaForgeConfig;
-import net.aspw.viaforgeplus.screen.GuiProtocolSelectorScreen;
+import net.aspw.viaforgeplus.screen.GuiProtocolSelector;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.gui.GuiScreen;
@@ -23,7 +20,7 @@ public class GuiMultiplayerMixin extends GuiScreen {
     @Inject(method = "actionPerformed", at = @At("RETURN"))
     public void handleViaForgePlusButtonClicking(GuiButton p_actionPerformed_1_, CallbackInfo ci) {
         if (p_actionPerformed_1_.id == 1_000_000_000) {
-            mc.displayGuiScreen(new GuiProtocolSelectorScreen(this));
+            mc.displayGuiScreen(new GuiProtocolSelector(this));
         }
     }
     

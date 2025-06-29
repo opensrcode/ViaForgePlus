@@ -1,6 +1,6 @@
-package net.aspw.viaforgeplus.vfphooks;
+package net.aspw.viaforgeplus;
 
-import net.aspw.viaforgeplus.common.CommonViaForgePlus;
+import net.aspw.viaforgeplus.vfphook.OutdatedJavaTLSFixer;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,7 +9,9 @@ import javax.net.ssl.X509TrustManager;
 
 public class UpdatesChecker {
 
-    public static void check() {
+    public boolean isModLatest = false;
+
+    public void check() {
         try {
             OutdatedJavaTLSFixer tlsPatcher = new OutdatedJavaTLSFixer();
 
@@ -26,11 +28,12 @@ public class UpdatesChecker {
             try (Response response = client.newCall(request).execute()) {
                 if (response.body() != null) {
                     String latestVersion = response.body().string();
-                    CommonViaForgePlus.isModLatest = latestVersion.equals(CommonViaForgePlus.version);
+                    final String VERSION = "alphaAntiLeak22";
+                    isModLatest = latestVersion.equals(VERSION);
                 }
             }
         } catch (Exception ignored) {
-            CommonViaForgePlus.isModLatest = false;
+            isModLatest = false;
         }
     }
 }

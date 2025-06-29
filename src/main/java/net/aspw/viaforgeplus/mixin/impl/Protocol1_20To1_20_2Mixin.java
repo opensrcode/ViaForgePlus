@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.mixin.impl.fix;
+package net.aspw.viaforgeplus.mixin.impl;
 
 import com.viaversion.viaversion.api.protocol.packet.PacketWrapper;
 import com.viaversion.viaversion.protocols.v1_19_3to1_19_4.packet.ServerboundPackets1_19_4;

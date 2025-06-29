@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.vfphooks;
+package net.aspw.viaforgeplus.vfphook;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;

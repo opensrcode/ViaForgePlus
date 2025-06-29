@@ -1,4 +1,4 @@
-package net.aspw.viaforgeplus.vfphooks;
+package net.aspw.viaforgeplus.vfphook;
 
 public class Interpolation {
 
