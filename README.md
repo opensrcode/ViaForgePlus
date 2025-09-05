@@ -19,10 +19,9 @@ GitHub Releases: https://github.com/opensrcode/ViaForgePlus/releases
 - ViaaaS (Proxy) - https://github.com/ViaVersion/ViaaaS
 
 # Contributors
-- Aspw
 - ViaVersion
 - ViaMCP
-- toidicakhia
+- opensrcode  
 
 # Beware of fakes
 https://www.mcmod.cn/author/32100.html <- This page is an impostor of me. Also, I'm not Chinese, so I don't haunt dangerous sites like this
