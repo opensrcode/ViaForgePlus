@@ -6,11 +6,11 @@ Hypixel connection fixes, 1.5 block sneak support, etc.
 
 ## Contact
 If you encounter any issues, please report them on the
-[issue tracker](https://github.com/Aspw-w/ViaForgePlus/issues).
+[issue tracker](https://github.com/opensrcode/ViaForgePlus/issues).
 
 ## For users
 ### Where can I download the latest version?
-GitHub Releases: https://github.com/Aspw-w/ViaForgePlus/releases
+GitHub Releases: https://github.com/opensrcode/ViaForgePlus/releases
 
 ## Other ViaVersion Mods / Platforms
 - ViaFabric - https://modrinth.com/mod/viafabric
